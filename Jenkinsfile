@@ -11,4 +11,8 @@ node {
 	sh 'mvn clean package'
   }
 
+  stage('Docker build'){
+  	def image = docker.build('dexter/ingatms:latest', '.')
+  }
+
 }
