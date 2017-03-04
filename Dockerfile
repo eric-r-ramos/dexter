@@ -2,6 +2,7 @@ FROM openjdk:latest
 
 RUN mkdir -p /home/dexter/
 RUN useradd dexter -d /home/dexter/
+RUN chown -R dexter. /home/dexter/
 
 USER dexter
 
