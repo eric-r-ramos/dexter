@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import io.dexter.entities.atm.Atm;
 import io.dexter.services.atm.AtmService;
 
-@RestController("/")
+/**
+ * REST controller for managing ATMs services.
+ */
+@RestController
+@RequestMapping("/api")
 public class AtmRestController {
 	
 	@Autowired
