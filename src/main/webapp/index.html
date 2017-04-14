@@ -1,14 +1,25 @@
 <!doctype html>
-<html lang="en" ng-app>
-  <head>
-    <meta charset="utf-8">
-    <title>My HTML File</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <script src="bower_components/angular/angular.js"></script>
-  </head>
-  <body>
+<html lang="en" ng-app="dexter">
+<head>
+	<base href="/">
+	<meta charset="utf-8">
+	<title>DEXTER APP</title>
+	
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="content/css/dexter.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+</head>
 
-    <p>Nothing here {{'yet' + '!'}}</p>
+<body>
 
-  </body>
+	<div class="container">
+		<ng-view></ng-view>
+	</div>
+</body>
+
+<script src="app/js/app.js"></script>
+<script src="app/js/home/home-controller.js"></script>
+<script src="app/js/login/login-controller.js"></script>
+
 </html>

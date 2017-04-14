@@ -2,6 +2,13 @@ package io.dexter.entities.atm;
 
 public class Address {
 	private String street;
+	private String housenumber;
+	private String postalcode;
+	private String city;
+	
+	private GeoLocation geoLocation;
+	
+	
 	public String getStreet() {
 		return street;
 	}
@@ -42,13 +49,6 @@ public class Address {
 		this.geoLocation = geoLocation;
 	}
 
-	private String housenumber;
-	private String postalcode;
-	private String city;
-	
-	private GeoLocation geoLocation;
+
 
 }
-
-//{"address":
-//{"street":"Plesmanlaan","housenumber":"174","postalcode":"2497 CC","city":"DEN HAAG","geoLocation":{"lat":"52.039047","lng":"4.366424"}},"distance":0,"type":"ING"}
