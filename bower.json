@@ -1,0 +1,11 @@
+{
+  "version": "0.0.0",
+  "name": "dexter",
+  "appPath": "src/main/webapp/",
+  "testPath": "src/test/javascript/spec",
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-route" : "1.5.8",
+    "bootstrap": "3.3.7"
+  },
+}
