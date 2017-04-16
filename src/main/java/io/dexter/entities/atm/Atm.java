@@ -1,5 +1,11 @@
 package io.dexter.entities.atm;
 
+/**
+ * Atm entity from provider service
+ * 
+ * @author ericramos
+ *
+ */
 public class Atm {
 	private Address address;
 	private int distance;

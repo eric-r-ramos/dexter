@@ -1,6 +1,5 @@
 package io.dexter.config.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -10,28 +9,39 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 
 
+/**
+ * 
+ * Spring config WebSecurityConfigurerAdapter specialized for Dexter Application
+ * Config the secutiry layer of application including the filters for requests and specific 
+ * secutiry handlers
+ * 
+ * @author ericramos
+ *
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 
-    @Autowired
-    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+    @Bean
+    public RestAuthenticationEntryPoint restAuthenticationEntryPoint() {
+    	return new RestAuthenticationEntryPoint();
+    }
 
     
     @Bean
-    public AjaxAuthenticationFailureHandler ajaxAuthenticationFailureHandler() {
-        return new AjaxAuthenticationFailureHandler();
+    public RestAuthenticationFailureHandler restAuthenticationFailureHandler() {
+        return new RestAuthenticationFailureHandler();
     }
     
     @Bean
-    public AjaxLogoutSuccessHandler ajaxLogoutSuccessHandler() {
-        return new AjaxLogoutSuccessHandler();
+    public RestLogoutSuccessHandler restLogoutSuccessHandler() {
+        return new RestLogoutSuccessHandler();
     }
     
     @Bean
-    public AjaxAuthenticationSuccessHandler ajaxAuthenticationSuccessHandler() {
-        return new AjaxAuthenticationSuccessHandler();
+    public RestAuthenticationSuccessHandler restAuthenticationSuccessHandler() {
+        return new RestAuthenticationSuccessHandler();
     }
     
 	
@@ -41,24 +51,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         	.csrf()
         		.disable()
         		.exceptionHandling()
-        		.authenticationEntryPoint(restAuthenticationEntryPoint)
+        		.authenticationEntryPoint(restAuthenticationEntryPoint())
         	.and()
             .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/bower_components/**").permitAll()
                 .antMatchers("/content/**").permitAll()
                 .antMatchers("/app/js/**").permitAll()
-                .antMatchers("/api/atm/**").authenticated()
-                .antMatchers("/api/city/**").permitAll()
+                .antMatchers("/api/atm/*").authenticated()
+                .antMatchers("/api/atm/listCities/").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/user").permitAll()
             .and()
             	.formLogin()
-            	.successHandler(ajaxAuthenticationSuccessHandler())
-            	.failureHandler(ajaxAuthenticationFailureHandler())
+            	.successHandler(restAuthenticationSuccessHandler())
+            	.failureHandler(restAuthenticationFailureHandler())
         	.and()
         		.logout()
-                .logoutSuccessHandler(ajaxLogoutSuccessHandler())
+                .logoutSuccessHandler(restLogoutSuccessHandler())
                 .permitAll()
         	.and()
                 .httpBasic();

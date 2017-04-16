@@ -22,7 +22,7 @@ angular.module('dexter').controller('HomeController', function($scope, $http, $r
     	msg : '' 
     }
 
-    $http.get('/api/city')
+    $http.get('/api/atm/listCities/')
     .success(function(retorno) {
         console.log(retorno);
         $scope.cities = retorno; 
@@ -36,7 +36,7 @@ angular.module('dexter').controller('HomeController', function($scope, $http, $r
     $scope.atms = [];
     $scope.search = function(){
     	
-        $http.get('/api/atm/city/'+ $scope.selectedCity)
+        $http.get('/api/atm?city='+ $scope.selectedCity)
         .success(function(retorno) {
             $scope.atms = retorno; 
             $scope.showTable = $scope.atms.length > 0;

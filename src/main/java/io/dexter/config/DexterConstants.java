@@ -2,6 +2,7 @@ package io.dexter.config;
 
 /**
  * DexterConstants constants.
+ * @author ericramos
  */
 public final class DexterConstants {
 
@@ -9,8 +10,6 @@ public final class DexterConstants {
 	public static final String SPRING_PROFILE_DEVELOPMENT = "dev";
 	public static final String SPRING_PROFILE_TEST = "test";
 	public static final String SPRING_PROFILE_PRODUCTION = "prod";
-	
-	public static final String ING_SERVICE_URL = "https://www.ing.nl/api/locator/atms/";
 
 	private DexterConstants() {
 	}

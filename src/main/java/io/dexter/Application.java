@@ -9,6 +9,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 
+/**
+ * Application class used to start Spring Boot
+ * @author ericramos
+ *
+ */
 
 @SpringBootApplication
 public class Application {
