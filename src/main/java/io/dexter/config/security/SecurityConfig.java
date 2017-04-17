@@ -45,6 +45,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
     
 	
+    /**
+     * use this method to configure security layes behavior 
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -76,11 +79,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-    
+    /**
+     * use this method to configure user/pass of application
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
       throws Exception {
-  
+    	//using auth.inMemory. If you want to improve the source of of user/pass, you should change it here
+    	//consider use auth.ldapAuthentication() or auth.jdbcAuthentication() 
+
         auth.inMemoryAuthentication()
           .withUser("temporary").password("temporary").roles("ADMIN")
         .and()

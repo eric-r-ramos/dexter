@@ -1,5 +1,11 @@
 package io.dexter.entities.atm;
 
+/**
+ * GelLocation entity from  service
+ * 
+ * @author ericramos
+ *
+ */
 public class GeoLocation {
 
 	private float lat;

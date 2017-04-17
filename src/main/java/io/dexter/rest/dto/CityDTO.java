@@ -1,5 +1,11 @@
 package io.dexter.rest.dto;
 
+/**
+ * City Data Transfer Object
+ * 
+ * @author ericramos
+ *
+ */
 public class CityDTO {
 	private String name;
 	

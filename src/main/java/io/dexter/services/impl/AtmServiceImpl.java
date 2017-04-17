@@ -14,12 +14,23 @@ import io.dexter.services.dispatcher.AtmServiceDispatcher;
 import io.dexter.services.dispatcher.entities.Address;
 import io.dexter.services.dispatcher.entities.Atm;;
 
+/**
+ * Implementation of <code>AtmService</code>
+ * it uses the dispatcher services from the original service in order to get the data
+ * 
+ * @author ericramos
+ *
+ */
 @Service
 public class AtmServiceImpl implements AtmService {
 
 	@Autowired
 	private AtmServiceDispatcher dispatcher;
 
+	/**
+	 * This service invoke the original service (method used to return full list of ATM) and group the cities returned.
+	 * It aim to get all cities that has a ATM from ING		 
+	 */
 	@Override
 	public List<String> listAllCities() {
 		List<String> cities = new ArrayList<String>(dispatcher.listAllAtm().stream()
@@ -28,6 +39,11 @@ public class AtmServiceImpl implements AtmService {
 		return cities;
 	}
 
+	
+	/**
+	 * Invoke dispacther and get ATM data without filter
+	 * @return list of <code>AtmEntity</code>
+	 */
 	public List<AtmEntity> listAllAtms() {
 
 		List<AtmEntity> list = new ArrayList<>();
@@ -36,11 +52,23 @@ public class AtmServiceImpl implements AtmService {
 		return list;
 	}
 
+	/**
+	 * Invoke dispacther and get ATM data and filter it using the city parameter
+	 * @param city the City used as filter
+	 * @return list of <code>AtmEntity</code> 
+	 */
 	public List<AtmEntity> findAtmByCity(String city) {
 		return listAllAtms().stream().filter(atm -> atm.getCity().trim().equalsIgnoreCase(city.trim()))
 				.collect(Collectors.toList());
 	}
 
+	
+	/**
+	 * Convert Atm (dispatcher entity) for AtmEntity
+	 * 
+	 * @param atm
+	 * @return AtmEmtity filled
+	 */
 	private AtmEntity convert(Atm atm) {
 		Address address = atm.getAddress();
 		if (atm != null && atm.getAddress() != null) {

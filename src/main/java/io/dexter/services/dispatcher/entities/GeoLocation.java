@@ -1,5 +1,11 @@
 package io.dexter.services.dispatcher.entities;
 
+/**
+ * GeoLocation entity from service provider
+ * 
+ * @author ericramos
+ *
+ */
 public class GeoLocation {
 
 	private float lat;

@@ -171,3 +171,6 @@ The Spring Boot Maven plugin includes a run goal which can be used to compile an
 ```
 $ mvn spring-boot:run
 ```
+
+By default the application start a web server at port 8081.
+Use `localhost:8081` to reach the application user interface.
