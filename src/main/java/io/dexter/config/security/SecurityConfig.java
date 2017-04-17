@@ -61,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/bower_components/**").permitAll()
                 .antMatchers("/content/**").permitAll()
                 .antMatchers("/app/js/**").permitAll()
-                .antMatchers("/api/atm/*").authenticated()
+                .antMatchers("/api/atm").authenticated()
                 .antMatchers("/api/atm/listCities/").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/user").permitAll()

@@ -1,5 +1,11 @@
 package io.dexter.services.dispatcher.entities;
 
+/**
+ * Adreess entity from service provider
+ * 
+ * @author ericramos
+ *
+ */
 public class Address {
 	private String street;
 	private String housenumber;

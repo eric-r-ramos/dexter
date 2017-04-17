@@ -117,7 +117,7 @@ There are 3 main endpoints at Dexter web services, all of them is RESTful servic
 
 ---
 
-* **Endpoint:** `/api/atm/{city}/`
+* **Endpoint:** `/api/atm/?city={city}/`
 * **Public Service**: *NO* (you must to be logged to use)
 * **Return**: a filtered list of ATM from ING service, given a specific city as parameter.
 * **Parameter** `city`: Name of the city to use as filter

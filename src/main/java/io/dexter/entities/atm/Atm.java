@@ -1,7 +1,7 @@
 package io.dexter.entities.atm;
 
 /**
- * Atm entity from provider service
+ * Atm entity from service
  * 
  * @author ericramos
  *
