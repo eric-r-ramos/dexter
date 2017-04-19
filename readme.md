@@ -18,7 +18,7 @@ The application was written in Java 8 and uses **Spring Boot**, **AngularJS** an
 
 
 ### Maven
-Pleaser check `pom.xml` for full code insertion.
+Please check `pom.xml` for full code insertion.
 
 * `spring-boot-starter-web`
 * `spring-boot-starter-security`
